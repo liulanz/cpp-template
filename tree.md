@@ -1,4 +1,5 @@
-```cc++
+## Inorder Tree Traversal without Recursion
+```c++
 void inOrder(struct Node *root)
 {
     stack<Node *> s;
