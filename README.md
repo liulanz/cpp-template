@@ -5,8 +5,6 @@
 
 **priority_queue**:
 ```c++
-priority_queue< pair<int,int> , vector<pair<int,int>>,
-    [](pair<int,int>  a, pair<int,int>  b) -> bool {
-        if(a.first > b.first){ return true; } else { return false; }
-    }> pq;
+auto comp = []( pair<int,int>  a, pair<int,int>  b) { return a.second > b.second; };
+priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp );
 ```
