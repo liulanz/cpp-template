@@ -1,0 +1,18 @@
+By Array
+int find(int x, vector<int> &nums){
+        if(nums[x]==x)return x;
+        int root=find(nums[x]);
+        nums[x]=root;
+        return root;
+    }
+
+
+
+By map
+
+int find(int x, unordered_map<int,int> &umap){
+        if(umap[x])==x)return x;
+        int root=find(umap[x]);
+        umap[x] = root;
+        return root;
+}
