@@ -21,3 +21,10 @@ priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp
  pop_front()/pop_back()
  ```
  
+**bitset**
+``c++
+ bitset<64> nums(start);
+ bitset<64>nums2(end);
+ nums =  nums<<1; // shift left add a zero in the back not 1
+ nums|= one; 
+```
