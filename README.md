@@ -22,9 +22,20 @@ priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp
  ```
  
 **bitset**
-``c++
+```c++
  bitset<64> nums(start);
  bitset<64>nums2(end);
  nums =  nums<<1; // shift left add a zero in the back not 1
  nums|= one; 
+```
+
+**stringstream split**
+```c++
+std::string input = "abc,def,ghi";
+std::istringstream ss(input);
+std::string token;
+
+while(std::getline(ss, token, ',')) {
+    std::cout << token << '\n';
+}
 ```
