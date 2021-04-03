@@ -49,3 +49,15 @@ while(std::getline(ss, token, ',')) {
     std::cout << token << '\n';
 }
 ```
+
+**auto in map**
+```c++
+for(auto k: umap){
+        if(s.find(k.second)==s.end()){
+            s.insert(k.second);
+        }
+        else{
+            return false;
+        }
+    }
+```
