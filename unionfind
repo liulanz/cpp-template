@@ -1,7 +1,7 @@
 By Array
 int find(int x, vector<int> &nums){
         if(nums[x]==x)return x;
-        int root=find(nums[x]);
+        int root=find(nums[x], nums);
         nums[x]=root;
         return root;
     }
