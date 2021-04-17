@@ -1,5 +1,8 @@
 # template
 
+**string to int** ``stoi(num);``
+
+**char to int**: ``c -'0'``
 
 **number of sublist**: ``res += (1+cnt)*cnt/2``
 
