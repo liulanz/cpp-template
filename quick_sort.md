@@ -13,7 +13,7 @@ int partition(vector<int>& nums, int start, int end) {
 
 int solve(vector<int>& nums, int k) {
     int l = 0, r = nums.size() - 1;
-    while (l < r) {
+    while (l <= r) {
         int m = partition(nums, l, r);
         if (m < k)
             l = m + 1;
