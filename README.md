@@ -1,5 +1,6 @@
 # template
 
+**get number of digits** : ``int(log10(num) + 1) //log10(7666) is 3..... +1 = 4`` 
 **string to int** ``stoi(num);``
 
 **char to int**: ``c -'0'``
