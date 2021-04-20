@@ -67,4 +67,19 @@ for(auto k: umap){
     }
 ```
 
+**count how many ones are in binary**
+```c++
+    int n = 20;
+    int count =0;
+    int one = 1;
+  
+    for(int i=0;i<32;i++){
+         one = 1<<i;
+        if(n&one){
+            count++;
+           
+        }
+    }
+    return count;
+```
 ![image](https://user-images.githubusercontent.com/37808313/115097242-f9802380-9ef6-11eb-84a0-95647a9b9269.png)
