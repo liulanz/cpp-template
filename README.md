@@ -82,4 +82,10 @@ for(auto k: umap){
     }
     return count;
 ```
+
+**if a string is in another string**
+```c++
+return s0.find(s1)!=string::npos;
+```
+
 ![image](https://user-images.githubusercontent.com/37808313/115097242-f9802380-9ef6-11eb-84a0-95647a9b9269.png)
