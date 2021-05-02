@@ -1,7 +1,7 @@
 # template
 
 **find first position of string x occurs in string y**
-``int/size_t found = str.find(str2);``
+``int/size_t found = str.find("sss");``
 
 **change value in queue**: 
 ```c++
