@@ -1,5 +1,8 @@
 # template
 
+**find first position of string x occurs in string y**
+``int/size_t found = str.find(str2);``
+
 **change value in queue**: 
 ```c++
 auto& curr = q.front();
