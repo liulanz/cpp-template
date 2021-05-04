@@ -30,6 +30,7 @@ priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp
 **sort**``(>: 4321, <: 1234)`` 
 ```c++
 std::sort(s.begin(), s.end(), std::greater<int>()); // 4321 
+sort(fre.rbegin(), fre.rend()); //4321
 
 sort(costs.begin() , costs.end() , [](vector<int>& a,vector<int>& b) -> bool{  // sort by difference between v[1]-v[0] largest to smallest
    return a[1]-a[0] > b[1]-b[0];
