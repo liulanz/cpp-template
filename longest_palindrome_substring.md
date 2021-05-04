@@ -1,7 +1,7 @@
 ## number of palindrome_substring
 
 #### only use upper right of 2d vectors, must fill first two diagonals first
-
+![Screenshot 2021-05-03 195506](https://user-images.githubusercontent.com/37808313/116947841-ca361a00-ac4b-11eb-8c43-eaac156a73ac.png)
 ```c++
 int solve(string s) {
     int count = 0;
@@ -41,3 +41,29 @@ int solve(string s) {
 }
 ```
 
+
+---
+
+## O(1) Space
+
+```c++
+int numberPalindrome(int l, int r, string s){
+    if(l>r ||s=="") return 0;
+    int res = 0;
+    while(l>=0 && r <s.length() && s[l]==s[r]){
+        l--;
+        res++;
+        r++;
+    }
+    return res;
+}
+int solve(string s) {
+    int res = 0;
+    for(int i = 0; i <s.length();i++){
+        int l = numberPalindrome(i, i, s);
+        int r = numberPalindrome(i, i+1, s);
+        res+= l+r;
+    }
+    return res;
+}
+```
