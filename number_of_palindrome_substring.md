@@ -1,3 +1,30 @@
+## longest palindromic sub sequence 
+```c++
+int solve(string s) {
+    vector<vector<int>> dp(s.length(), vector<int>(s.length()));
+    for(int i = 0; i <s.length();i++){
+        dp[i][i]  =1;
+    }
+    int n = s.length();
+
+    for(int k = 2; k <=dp.size();k++){
+    for(int i = 0; i <s.length()-k+1;i++){
+        
+        int j = i+k-1;
+            if(s[i]==s[j]){
+                dp[i][j] = dp[i+1][j-1]+2;
+        
+            }
+            else{
+                dp[i][j]  = max(dp[i+1][j], dp[i][j-1]);
+            }
+        }
+    }
+   return  dp[0][n-1]; 
+     return n-dp[0][n-1];   // # of  insert  to make it into substring
+}
+```
+
 ## number of palindrome_substring
 
 #### only use upper right of 2d vectors, must fill first two diagonals first
