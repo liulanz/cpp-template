@@ -99,4 +99,11 @@ for(auto k: umap){
 return s0.find(s1)!=string::npos;
 ```
 
+**rand()**
+```c++
+v1 = rand() % 100;         // v1 in the range 0 to 99
+v2 = rand() % 100 + 1;     // v2 in the range 1 to 100
+v3 = rand() % 30 + 1985;   // v3 in the range 1985-2014 
+```
+
 ![image](https://user-images.githubusercontent.com/37808313/115097242-f9802380-9ef6-11eb-84a0-95647a9b9269.png)
