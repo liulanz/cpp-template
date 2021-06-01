@@ -83,6 +83,8 @@ if (umap.find(key) != umap.end())
      cout << "Found " << key << "\n\n";
 ```
 #### Problem
+- [389. Find the Difference](https://leetcode.com/problems/find-the-difference/)
+- [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 ## Set
 ```c++
 // empty set container
@@ -102,6 +104,10 @@ if(s1.empty()) // check is empty
 
 s1.erase(40); // remove 40 from set
 ```
+#### Problem
+- [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+- [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+- [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
 ## BFS 
 - Use queue
 ### Tree (Traversal by level)
