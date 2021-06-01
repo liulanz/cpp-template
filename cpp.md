@@ -120,13 +120,42 @@ s1.erase(40); // remove 40 from set
 - [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
 ## Priority Queue
 ```C++
+priority_queue<int> gquiz;
+gquiz.push(10);
+gquiz.push(30);
+gquiz.push(20);
+gquiz.push(5);
+gquiz.push(1);
+//The priority queue gquiz is :     30    20    10    5    1
+gquiz.size();
+gquiz.top(); // same as .front() in regular queue
+gquiz.pop();
+
 priority_queue<int> pq; // 4321 largest to smallest by default
 priority_queue<int, vector<int>, greater<int>> pq; // 1234 
 
 auto comp = []( pair<int,int>  a, pair<int,int>  b) { return a.second > b.second; };
 priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp );
-```
 
+```
+```c++
+int findKthLargest(vector<int>& nums, int k) {
+   priority_queue<int> pq; // largest to smallest
+   for(int num: nums){
+      pq.push(num); //push everything to pq
+   }
+   int num = 1;
+   while(!pq.empty()){
+      if(num==k) return pq.top(); // get the k th number in queue
+      pq.pop();
+      num++;
+   }
+   return -1;
+}
+```
+#### Problem
+- [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+- [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) (unordered map & pq)
 ## BFS 
 - Use queue
 ### Tree (Traversal by level)
@@ -152,6 +181,7 @@ return res;
 ```
 #### Problem
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+- [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) (you can also use recursion)
 ### 2D Matrix
 ```C++
 // push new, unvisited, valid {row, col, level} to queue
