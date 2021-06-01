@@ -33,6 +33,8 @@ sort(costs.begin() , costs.end() , [](vector<int>& a,vector<int>& b) -> bool{  /
    return a[1]-a[0] > b[1]-b[0];
 });
 ```
+#### Problem
+- [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
 ## Stack
 - [inorder traversal](https://github.com/liulanz/template/blob/main/tree.md)
 ```C++
@@ -133,6 +135,8 @@ gquiz.pop();
 
 priority_queue<int> pq; // 4321 largest to smallest by default
 priority_queue<int, vector<int>, greater<int>> pq; // 1234 
+
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int,int>>> pq; //{2,3}, {1,3}, {0, 5}
 
 auto comp = []( pair<int,int>  a, pair<int,int>  b) { return a.second > b.second; };
 priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp );
@@ -273,5 +277,6 @@ void dfs(vector<vector<int>>& matrix, vector<vector<int>>& visited, int row, int
 ```
 #### Problem
 - [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
+- [419. Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/)
 
 
