@@ -2,9 +2,11 @@
 1. [Vector Initialization](#vector-initialization)
 1. [Stack](#stack)
 1. [Queue](#queue)
-1. [BFS](#bfs)
 1. [Unordered Map](#unordered-map)
 1. [set](#set)
+1. [DFS](#dfs)
+1. [BFS](#bfs)**
+
 
 ## Vector Initialization
 ```C++
@@ -18,9 +20,12 @@ vect.push_back(30);
 vector<int> vect(n, 10);
 
 vector<int> vect{ 10, 20, 30 };
+
+vector<vector<int>> twoDVector (n, vector<int> (n, 10)); // n by n, all values as 10
 ```
 
 ## Stack
+- [inorder traversal](https://github.com/liulanz/template/blob/main/tree.md)
 ```C++
 stack<int> stack;
 stack.push(21);
@@ -37,6 +42,8 @@ while (!stack.empty()) {
 }
 // 22 21
 ```
+#### Problem
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 ## Queue
 - [BFS](#bfs)
 ```C++
@@ -48,7 +55,7 @@ cout << "\ngquiz.size() : " << gquiz.size(); // gquiz.size() : 3
 cout << "\ngquiz.front() : " << gquiz.front(); // gquiz.front() : 10
 gquiz.pop();
 ```
-
+#### Problem
 ## Unordered Map
 ```c++
 // Declaring umap to be of <string, int> type
@@ -74,8 +81,8 @@ if (umap.find(key) == umap.end())
 // If key found then iterator to that key is returned
 if (umap.find(key) != umap.end())
      cout << "Found " << key << "\n\n";
- 
 ```
+#### Problem
 ## Set
 ```c++
 // empty set container
@@ -98,7 +105,6 @@ s1.erase(40); // remove 40 from set
 ## BFS 
 - Use queue
 ### Tree (Traversal by level)
-- [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 ```C++
 vector<vector<int>> res;
 if(root==nullptr) return res;
@@ -119,5 +125,80 @@ while(!q.empty()){
 }
 return res;
 ```
+#### Problem
+- [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+### 2D Matrix
+```C++
+// push new, unvisited, valid {row, col, level} to queue
+void bfs( queue<vector<int>> &q,vector<vector<int>>& grid, int row, int col, int day){
+    if(row <0||col <0||row>=grid.size()||col >=grid[0].size())return;
+    if(grid[row][col]==2) return;
+    if(grid[row][col]==0) return;
+    grid[row][col]=2;
+    q.push({row,col,day});
+}
+
+int orangesRotting(vector<vector<int>>& grid) {
+    if(grid.size()==0) return 0;
+    queue<vector<int>> q;
+    vector<vector<int>>visited(grid.size(), vector<int>(grid[0].size()));
+    for(int row = 0; row <grid.size();row++){
+        for(int col = 0; col <grid[0].size();col++){
+            if(grid[row][col] ==2){
+                q.push({row, col,0});
+            }
+        }
+    }
+    int res = 0;
+    while(!q.empty()){
+        int sizz = q.size();
+        for(int i =0; i <sizz;i++){
+            vector<int> top = q.front();
+            q.pop();
+            int r = top[0];
+            int c=top[1];
+            int day = top[2];
+            res=max(res, day);
+            // push new, unvisited, valid {row, col, level} to queue
+            bfs(q, grid, r+1, c, day+1);
+            bfs(q, grid, r-1, c, day+1);
+            bfs(q, grid, r, c+1, day+1);
+            bfs(q, grid, r, c-1, day+1);
+        }
+    }
+    for(int row = 0; row <grid.size();row++){
+        for(int col = 0; col <grid[0].size();col++){
+            if(grid[row][col]==1){
+                return -1;
+            }
+        }
+    }
+    return res;
+}
+
+```
+#### Problem
+- [994 Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
+## DFS
+### 2D Matrix
+
+```C++
+void dfs(vector<vector<int>>& matrix, vector<vector<int>>& visited, int row, int col  ){
+    if(row<0||row>=matrix.size()||col <0||col>=matrix[0].size()) return;
+    if(visited[row][col]) return;
+    if(matrix[row][col]==0) return;
+    visited[row][col] = 1;  // keep track of visited cell
+    /* 
+        do sth in dfs
+    */
+    dfs(matrix, visited, row+1, col);
+    dfs(matrix, visited, row-1, col);
+    dfs(matrix, visited, row, col+1);
+    dfs(matrix, visited, row, col-1);
+}
+
+```
+#### Problem
+- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
 
 
