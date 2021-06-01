@@ -5,8 +5,8 @@
 1. [Unordered Map](#unordered-map)
 1. [set](#set)
 1. [DFS](#dfs)
-1. [BFS](#bfs)**
-
+1. [BFS](#bfs)
+1. [Priority Queue](#priority-queue)
 
 ## Vector Initialization
 ```C++
@@ -23,7 +23,16 @@ vector<int> vect{ 10, 20, 30 };
 
 vector<vector<int>> twoDVector (n, vector<int> (n, 10)); // n by n, all values as 10
 ```
+### Sort
+```C++
+sort(s.begin(), s.end(), greater<int>()); // 4321 
+sort(s.rbegin(), s.rend()); // 4321
+sort(s.begin(), s.end()); // 1234
 
+sort(costs.begin() , costs.end() , [](vector<int>& a,vector<int>& b) -> bool{  // sort by difference between v[1]-v[0] largest to smallest
+   return a[1]-a[0] > b[1]-b[0];
+});
+```
 ## Stack
 - [inorder traversal](https://github.com/liulanz/template/blob/main/tree.md)
 ```C++
@@ -85,6 +94,7 @@ if (umap.find(key) != umap.end())
 #### Problem
 - [389. Find the Difference](https://leetcode.com/problems/find-the-difference/)
 - [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
+- [387. First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 ## Set
 ```c++
 // empty set container
@@ -108,6 +118,15 @@ s1.erase(40); // remove 40 from set
 - [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 - [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 - [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
+## Priority Queue
+```C++
+priority_queue<int> pq; // 4321 largest to smallest by default
+priority_queue<int, vector<int>, greater<int>> pq; // 1234 
+
+auto comp = []( pair<int,int>  a, pair<int,int>  b) { return a.second > b.second; };
+priority_queue< pair<int,int> , vector<pair<int,int>>, decltype(comp) > pq( comp );
+```
+
 ## BFS 
 - Use queue
 ### Tree (Traversal by level)
@@ -186,6 +205,24 @@ int orangesRotting(vector<vector<int>>& grid) {
 #### Problem
 - [994 Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
 ## DFS
+### 1D Back Tracking
+```C++
+vector<vector<int>> result;
+void dfs(vector<int>dup,vector<int>& nums, int i ){
+    if(i >=nums.size()){
+        result.push_back(dup);
+        return;
+    }
+    // back tracking
+    dfs(dup, nums, i+1); // call when excluding
+    dup.push_back(nums[i]); //including
+    dfs(dup, nums, i+1); // call after including
+}
+```
+
+#### Problem
+- [78. Subsets](https://leetcode.com/problems/subsets/)
+- [79. Word Search](https://leetcode.com/problems/word-search/)
 ### 2D Matrix
 
 ```C++
