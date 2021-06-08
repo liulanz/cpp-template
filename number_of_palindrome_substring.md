@@ -20,7 +20,7 @@ int solve(string s) {
             }
         }
     }
-   return  dp[0][n-1]; 
+
      return n-dp[0][n-1];   // # of  insert  to make it into substring
 }
 ```
