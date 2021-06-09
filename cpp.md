@@ -187,7 +187,6 @@ return res;
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) (you can also use recursion)
 - [binarysearch.com: Level Order Alternating](https://binarysearch.com/problems/Level-Order-Alternating)
-- [993. Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree/)
 - [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
 ### 2D Matrix
 ```C++
