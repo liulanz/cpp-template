@@ -182,6 +182,34 @@ while(!q.empty()){
     res.push_back(tmp);
 }
 return res;
+
+//OR
+vector<vector<int>> levelOrder(TreeNode* root) {
+     vector<vector<int>> res;
+     queue<TreeNode*> q;
+     if(root==nullptr) return res;
+     q.push(root);
+
+     while(!q.empty()){
+         int sizee = q.size();
+         vector<int> tmp;
+         for(int i = 0; i <sizee; i++){
+             TreeNode* current = q.front();
+             q.pop();
+             tmp.push_back(current->val);
+
+             if(current->left !=nullptr){
+                 q.push(current->left);
+             }
+             if(current->right!=nullptr){
+                 q.push(current->right);
+             }
+
+         }
+         res.push_back(tmp);
+     }
+     return res;
+  }
 ```
 #### Problem
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
